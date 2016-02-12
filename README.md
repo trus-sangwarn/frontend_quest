@@ -4,10 +4,6 @@ Frontend Task
 How to start
 
 ```bash
-$ npm update
-```
-
-```bash
 $ gulp
 ```
 
