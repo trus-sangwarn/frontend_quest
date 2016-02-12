@@ -1,7 +1,7 @@
 {
   "name": "backend",
-  "description": "takemehome quest",
-  "version": "0.4.2",
+  "description": "takemetour quest",
+  "version": "1.0.0",
   "meanjs-version": "0.4.2",
   "private": false,
   "author": "Trus Sangwarn",
