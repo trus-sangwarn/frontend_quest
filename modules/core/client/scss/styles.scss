@@ -1,0 +1,507 @@
+@import "mixins/responsive";
+@import "mixins/border-radius";
+@import "mixins/box";
+@import "mixins/transition";
+@import "mixins/appearance";
+@import "variables";
+
+nav {
+  padding-top: 26px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  float: left;
+  &.normal {
+    @include box-shadow($black_40 0 0 10px);
+    z-index: 4000;
+    background: $white;
+    color: $tundora;
+    padding-top: 0;
+    padding-bottom: 0;
+    @include respond-to(mobile) {
+      padding: 0;
+    }
+    .container {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      height: 67px;
+      @include respond-to(mobile) {
+        height: 55px;
+      }
+    }
+  }
+  .container {
+    @include box-sizing;
+    width: 100%;
+    max-width: 1010px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 400;
+  }
+  .auto {
+    @include respond-to(mobile) {
+      height: auto;
+    }
+    &.container {
+      .mobile-menu {
+        @include transition;
+        display: none;
+        float: right;
+        background: none;
+        border: none;
+        line-height: 35px;
+        margin-right: 9px;
+        @include respond-to(mobile) {
+          display: inline-block;
+          padding: 3px 10px;
+        }
+      }
+      .dropdown {
+        @include border-radius;
+        position: relative;
+        margin-right: 5%;
+        text-align: center;
+        border: 1px solid;
+        margin-top: 0;
+        top: 6px;
+        padding: 6px 20px 10px;
+        margin-left: 140px;
+        width: 150px;
+        height: 15px;
+        background: $white $img-search center center no-repeat;
+        background-position: 9px;
+        color: $mountain;
+        @include respond-to(mobile) {
+          top: 1px;
+          width: auto;
+          margin-right: 60px;
+          margin-left: 70px;
+        }
+        &.select {
+          position: relative;
+          select {
+            @include appearance(none);
+            @include box-sizing;
+            opacity: 0;
+            z-index: 100;
+            background: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            border: 0;
+            padding-left: 20px;
+            color: transparent;
+            height: 100%;
+            option {
+              color: $tundora;
+            }
+          }
+        }
+        .arrow {
+          position: absolute;
+          right: 11px;
+          top: 11px;
+          width: 15px;
+          height: 9px;
+          background: $img-arrow center center no-repeat;
+        }
+      }
+    }
+  }
+  img {
+    &.logo {
+      float: left;
+      width: 73px;
+      margin-left: 43px;
+      @include respond-to(mobile) {
+        width: 52px;
+        margin-left: 8px;
+      }
+    }
+  }
+  .main-menu {
+    @include respond-to(mobile) {
+      display: none;
+    }
+    ul {
+      float: right;
+      margin: 7px 36px 0 0;
+      padding: 0;
+      @include respond-to(mobile) {
+          margin-right: 20px;
+      }
+      li {
+        list-style: none;
+        float: left;
+        position: relative;
+        &.signup-btn {
+          a {
+            border-color: inherit;
+          }
+        }
+        &.how-btn {
+          @include respond-to(tablet) {
+            display: none;
+          }
+        }
+        a {
+          @include border-radius;
+          @include box-sizing;
+          color: $tundora;
+          background: none;
+          padding: 7px 12px 8px;
+          border: 1px solid transparent;
+          display: inline-block;
+          text-decoration: none;
+          text-align: center;
+          cursor: pointer;
+          &.mg-left {
+            margin-left: 25px;
+          }
+          &.fill {
+            color: $white;
+            background: $scooter;
+          }
+        }
+        &:hover {
+          a, a.fill {
+            background: $tango;
+            color: $white;
+            border: 1px solid transparent;
+          }
+        }
+      }
+    }
+  }
+  .mobile-wall {
+    @include transition;
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $black_30;
+    position: absolute;
+    &.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .mobile-menu-list {
+      @include box-shadow($black_40 0 10px 10px -10px);
+      @include transition;
+      display: none;
+      position: absolute;
+      z-index: 300;
+      background: $tundora;
+      width: auto;
+      padding: 0;
+      margin: 0;
+      right: -370px;
+      height: 100vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      &.open {
+        right: 0;
+      }
+      li {
+        @include box-sizing;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        border-bottom: 1px solid $iron;
+        a {
+          display: block;
+          text-align: left;
+          width: 100%;
+          padding: 15px 40px 15px 20px;
+          color: $white;
+        }
+      }
+      @include respond-to(mobile) {
+        display: block;
+      }
+    }
+    @include respond-to(desktop) {
+      display: none;
+    }
+  }
+}
+.section {
+  background-color: $white;
+  padding-bottom: 20px;
+  padding-top: 100px;
+  overflow: hidden;
+  width: 100%;
+  @include respond-to(mobile) {
+    padding-top: 40px;
+  }
+  >.container {
+    @include box-sizing;
+		width: 100%;
+		max-width: 1010px;
+		margin: 0 auto;
+  }
+  &.feature {
+    h1 {
+      margin-top: 20px;
+      @include respond-to(mobile) {
+        margin-bottom: 20px;
+        margin-top: 30px;
+        font-weight: 300;
+        font-size: 18px;
+      }
+    }
+    &.inspiration {
+      h1 {
+        margin-bottom: 10px;
+      }
+      .description {
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        @include respond-to(mobile) {
+          margin-bottom: 20px;
+        }
+      }
+      .row {
+        @include respond-to(mobile) {
+          padding: 0 5%;
+        }
+      }
+    }
+    .wrapper {
+      width: auto;
+      text-align: center;
+      margin: 0 auto;
+      .btn {
+        margin-bottom: 10px;
+        .icon {
+          margin-top: 0;
+        }
+      }
+    }
+    .btn {
+      @include border-radius;
+      @include box-sizing;
+      margin: 20px auto;
+      border: 1px solid transparent;
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      padding: 16px 44px;
+      color: $white;
+      background: $tango;
+      @include respond-to(mobile) {
+        padding: 7px 12px 8px;
+      }
+      .txt {
+        position: relative;
+        top: 4px;
+      }
+    }
+  }
+}
+
+body {
+  font-family: Roboto,sans-serif;
+  font-size: 15px;
+  color: $tundora;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 20px;
+  margin: 0;
+  height: 100%;
+  @include respond-to(mobile) {
+    font-size: 13px;
+  }
+}
+
+h1, h2 {
+    color: $tango;
+    text-align: center;
+}
+
+h1 {
+    font-weight: 100;
+    font-size: 36px;
+    margin: 20px 0;
+    line-height: 42px;
+    margin-bottom: 35px;
+}
+
+h2 {
+    font-size: 18px;
+    line-height: 21px;
+    margin: 25px 0;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+nav,
+section {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: $tundora;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.btn,
+button {
+  @include border-radius;
+  @include box-sizing;
+  background: none;
+  padding: 7px 12px 8px;
+  border: 1px solid transparent;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  @include respond-to(mobile) {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+button {
+  @include appearance(button);
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+input,
+select {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+select {
+  width: 100%
+}
+
+img {
+  border: 0;
+}
+
+.col-1 {
+  width: 32.5%;
+  &:first-child {
+    margin-right: 1%;
+  }
+  &:last-child {
+    margin-left: 1%;
+  }
+}
+
+.col-2 {
+  width: 66%;
+}
+
+.col-1, .col-2 {
+  @include respond-to(mobile) {
+    margin: 0 0 10px;
+  }
+  &:first-child,&:last-child {
+    @include respond-to(mobile) {
+      margin: 0 0 10px;
+    }
+  }
+}
+
+.col-1,
+.col-2 {
+  @include border-radius;
+  height: 220px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin-bottom: 10px;
+  background-color: $black;
+  @include respond-to(mobile) {
+    height: 180px;
+    width: 100%;
+  }
+  .shadow {
+    @include border-radius;
+    background: $black_12;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+  }
+  .image {
+    @include transition(0.2s background-size);
+    @include border-radius;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    @include respond-to(mobile) {
+        background-size: cover;
+    }
+  }
+  h2 {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    color: $white;
+    width: 100%;
+    z-index: 1;
+    margin: 0 auto;
+    font-size: 22px;
+    @include respond-to(mobile) {
+      font-size: 18px;
+      position: absolute;
+      margin-bottom: 15px;
+      top: 80px;
+    }
+  }
+  &:hover {
+    @include box-shadow($scooter 0 0 10px);
+    @include respond-to(mobile) {
+      width: 100%;
+      height: 180px;
+    }
+    .image {
+      background-size: 107%;
+      @include respond-to(mobile) {
+          background-size: cover;
+      }
+    }
+  }
+}
+
+.icon {
+  float: left;
+  margin-top: 5px;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  &.inspiration {
+    width: 23px;
+    height: 26px;
+    background-image: $img-inspiration;
+  }
+}

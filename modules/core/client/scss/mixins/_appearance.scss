@@ -1,0 +1,6 @@
+@mixin appearance($ap) {
+  -webkit-appearance: $ap;
+  -moz-appearance: $ap;
+  -o-appearance: $ap;
+  appearance: $ap;
+}

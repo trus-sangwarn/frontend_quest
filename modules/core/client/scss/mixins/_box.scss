@@ -1,0 +1,13 @@
+@mixin box-shadow($bs...) {
+  -webkit-box-shadow: $bs;
+  -moz-box-shadow: $bs;
+  -o-box-shadow: $bs;
+  box-shadow: $bs;
+}
+
+@mixin box-sizing($bs: border-box) {
+  -webkit-box-sizing: $bs;
+  -moz-box-sizing: $bs;
+  -o-box-sizing: $bs;
+  box-sizing: $bs;
+}
