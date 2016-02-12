@@ -1,5 +1,16 @@
 Frontend Task
 ---
+
+How to start
+
+```bash
+$ npm update
+```
+
+```bash
+$ gulp
+```
+
 ![Designed page](https://raw.github.com/PanJ/job-quest/master/frontend/design.png)
 
 - Given the [designed page](https://raw.github.com/PanJ/job-quest/master/frontend/design.png), please write HTML and CSS accordingly
