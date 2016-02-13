@@ -18,7 +18,7 @@ $ npm install -g gulp
 $ npm install
 ```
 ```bash
-$ gulp
+$ npm start
 ```
 
 ![Designed page](https://raw.github.com/PanJ/job-quest/master/frontend/design.png)
