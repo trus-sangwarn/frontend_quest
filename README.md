@@ -4,6 +4,18 @@ Frontend Task
 How to start
 
 ```bash
+$ npm install -g bower
+```
+```bash
+$ npm install -g grunt-cli
+```
+```bash
+$ npm install -g gulp
+```
+```bash
+$ npm install
+```
+```bash
 $ gulp
 ```
 
